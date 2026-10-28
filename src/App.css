@@ -1,0 +1,424 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #202938;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.app {
+  width: min(1200px, 94%);
+  margin: 0 auto;
+  padding: 35px 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  color: #5865d9;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 9px;
+}
+
+.header h1 {
+  font-size: clamp(26px, 4vw, 36px);
+  margin-bottom: 9px;
+}
+
+.header p:not(.eyebrow),
+.section-description {
+  color: #778195;
+  line-height: 1.5;
+}
+
+.total-box {
+  min-width: 210px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e5e9f2;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.total-box span {
+  color: #778195;
+  font-size: 13px;
+}
+
+.total-box strong {
+  font-size: 24px;
+  color: #4653c6;
+  overflow-wrap: anywhere;
+}
+
+.form-section,
+.list-section,
+.details-page {
+  background: #fff;
+  border: 1px solid #e5e9f2;
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 28px;
+}
+
+.form-section h2,
+.list-section h2 {
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.section-description {
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.product-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.product-form label,
+.filter-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.product-form input,
+.product-form select,
+.product-form textarea,
+.filter-label select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #dce1eb;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fff;
+  color: #202938;
+  outline: none;
+}
+
+.product-form input:focus,
+.product-form select:focus,
+.product-form textarea:focus,
+.filter-label select:focus {
+  border-color: #5865d9;
+  box-shadow: 0 0 0 3px #5865d91c;
+}
+
+.product-form textarea {
+  min-height: 85px;
+  resize: vertical;
+}
+
+.form-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.submit-button,
+.add-button,
+.details-button,
+.secondary-button {
+  border: none;
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.submit-button {
+  grid-column: 1 / -1;
+  background: #5865d9;
+  color: white;
+  padding: 14px;
+}
+
+.submit-button:hover,
+.add-button:hover {
+  background: #404db8;
+}
+
+.list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.filter-label {
+  width: 190px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e5e9f2;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.product-card.low-stock {
+  border-color: #f1c36c;
+}
+
+.product-image {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: #f0f2f7;
+}
+
+.product-info {
+  padding: 18px;
+}
+
+.category-label {
+  display: inline-block;
+  background: #eef0ff;
+  color: #4b57c5;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.product-info h3 {
+  font-size: 18px;
+  margin-bottom: 9px;
+  overflow-wrap: anywhere;
+}
+
+.description {
+  color: #778195;
+  line-height: 1.5;
+  font-size: 14px;
+  min-height: 42px;
+  margin-bottom: 12px;
+}
+
+.rating {
+  color: #bd8517;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+.product-info > p:not(.description):not(.rating):not(.price) {
+  font-size: 14px;
+  margin-bottom: 9px;
+}
+
+.subtotal {
+  font-weight: bold;
+  color: #4653c6;
+  overflow-wrap: anywhere;
+}
+
+.stock-warning {
+  color: #b45309;
+  background: #fff5df;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px 8px;
+  font-weight: bold;
+}
+
+.details-button {
+  width: 100%;
+  margin: 10px 0;
+  background: #eef0ff;
+  color: #4653c6;
+}
+
+.details-button:hover {
+  background: #dfe3ff;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-controls button {
+  min-width: 38px;
+}
+
+.add-button {
+  flex: 1;
+  background: #5865d9;
+  color: white;
+}
+
+.secondary-button {
+  background: #edf0f5;
+  color: #283247;
+}
+
+.secondary-button:hover {
+  background: #dfe4ed;
+}
+
+.details-page {
+  min-height: 350px;
+}
+
+.back-button {
+  margin-bottom: 24px;
+}
+
+.details-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+}
+
+.details-layout > img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #f0f2f7;
+}
+
+.details-layout h2 {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.details-layout h3 {
+  margin: 18px 0 9px;
+}
+
+.details-layout p {
+  color: #626d80;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  text-align: center;
+  color: #8992a2;
+  font-size: 13px;
+  padding: 15px;
+}
+
+@media (max-width: 850px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-image {
+    height: 170px;
+  }
+}
+
+@media (max-width: 560px) {
+  .app {
+    width: 92%;
+    padding-top: 22px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .total-box {
+    width: 100%;
+  }
+
+  .form-section,
+  .list-section,
+  .details-page {
+    padding: 17px;
+  }
+
+  .product-form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-button {
+    grid-column: auto;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image {
+    height: 220px;
+  }
+
+  .list-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .filter-label {
+    width: 100%;
+  }
+
+  .details-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .details-layout h2 {
+    font-size: 24px;
+  }
+}
